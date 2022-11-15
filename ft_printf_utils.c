@@ -6,7 +6,7 @@
 /*   By: tgiraudo <tgiraudo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 19:21:18 by tgiraudo          #+#    #+#             */
-/*   Updated: 2022/11/15 20:17:13 by tgiraudo         ###   ########.fr       */
+/*   Updated: 2022/11/15 20:52:42 by tgiraudo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,9 @@ void	print_adress(void *addr)
 	ft_putstr("0x");
 	while (i >= 0)
 		ft_putchar(adr[i--]);
+}
+
+void	ft_print_dec(double nbr)
+{
+	
 }

@@ -6,7 +6,7 @@
 /*   By: tgiraudo <tgiraudo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 19:05:56 by tgiraudo          #+#    #+#             */
-/*   Updated: 2022/11/15 20:16:19 by tgiraudo         ###   ########.fr       */
+/*   Updated: 2022/11/15 20:52:09 by tgiraudo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int	ft_printf(const char *s, ...)
 				ft_putchar('%');
 			else if (s[i] == 'p')
 				print_adress(va_arg(args, void *));
+			// else if (s[i] == 'd')
+			// 	ft_print_dec(va_arg(args, float));
 		}
 		else
 			ft_putchar(s[i]);
@@ -49,6 +51,8 @@ int	ft_printf(const char *s, ...)
 int main()
 {
 	char *a ="test";
-	ft_printf("%p\n", a);
-	printf("%p", a);
+	double b = 15.2;
+	
+	ft_printf("%p\n", &a);
+	printf("%lf", b);
 }
