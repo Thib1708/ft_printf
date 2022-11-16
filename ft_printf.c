@@ -6,7 +6,7 @@
 /*   By: tgiraudo <tgiraudo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 19:05:56 by tgiraudo          #+#    #+#             */
-/*   Updated: 2022/11/15 20:52:09 by tgiraudo         ###   ########.fr       */
+/*   Updated: 2022/11/16 16:24:32 by tgiraudo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@ int	ft_printf(const char *s, ...)
 {
 	va_list	args;
 	int		i;
+	int		n;
 
 	i = 0;
+	n = 0;
 	va_start(args, s);
 	while (s[i])
 	{
@@ -25,34 +27,27 @@ int	ft_printf(const char *s, ...)
 		{
 			i++;
 			if (s[i] == 'c')
-				ft_putchar(va_arg(args, int));
+				n += ft_putchar(va_arg(args, int));
 			else if (s[i] == 's')
-				ft_putstr(va_arg(args, char *));
-			else if (s[i] == 'i')
-				ft_putnbr(va_arg(args, int));
-			else if (s[i] == 'x')
-				ft_putnbr_base(va_arg(args, int), "0123456789abcdef");
-			else if (s[i] == 'X')
-				ft_putnbr_base(va_arg(args, int), "0123456789ABCDEF");
-			else if (s[i] == '%')
-				ft_putchar('%');
+				n += ft_putstr(va_arg(args, char *));
 			else if (s[i] == 'p')
-				print_adress(va_arg(args, void *));
-			// else if (s[i] == 'd')
-			// 	ft_print_dec(va_arg(args, float));
+				n += print_adress(va_arg(args, void *));
+			else if (s[i] == 'd')
+				n += ft_putnbr(va_arg(args, int));
+			else if (s[i] == 'i')
+				n += ft_putnbr(va_arg(args, int));
+			else if (s[i] == 'u')
+				n += ft_putnbr_undec(va_arg(args, unsigned int));
+			else if (s[i] == 'x')
+				n += ft_putnbr_base(va_arg(args, int), "0123456789abcdef");
+			else if (s[i] == 'X')
+				n += ft_putnbr_base(va_arg(args, int), "0123456789ABCDEF");
+			else if (s[i] == '%')
+				n += ft_putchar('%');
 		}
 		else
-			ft_putchar(s[i]);
+			n += ft_putchar(s[i]);
 		i++;
 	}
-	return (0);
-}
-
-int main()
-{
-	char *a ="test";
-	double b = 15.2;
-	
-	ft_printf("%p\n", &a);
-	printf("%lf", b);
+	return (n);
 }

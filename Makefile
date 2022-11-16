@@ -6,13 +6,14 @@
 #    By: tgiraudo <tgiraudo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/07 17:57:40 by tgiraudo          #+#    #+#              #
-#    Updated: 2022/11/15 19:05:45 by tgiraudo         ###   ########.fr        #
+#    Updated: 2022/11/16 15:22:33 by tgiraudo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 SRCS	=	  ft_printf.c \
-
+			ft_printf_utils.c \
+			ft_printf_utils_2.c
 
 NAME		= libftprintf.a
 
@@ -20,7 +21,7 @@ OBJS		= ${SRCS:.c=.o}
 
 HEADERS		= .
 
-.c.o:
+%.o : %.c	Makefile ft_printf.h
 	gcc -Wall -Wextra -Werror -I ${HEADERS} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
