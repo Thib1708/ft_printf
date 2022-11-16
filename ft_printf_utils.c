@@ -6,7 +6,7 @@
 /*   By: tgiraudo <tgiraudo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 19:21:18 by tgiraudo          #+#    #+#             */
-/*   Updated: 2022/11/16 16:24:16 by tgiraudo         ###   ########.fr       */
+/*   Updated: 2022/11/16 22:28:50 by tgiraudo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,16 @@
 
 int	ft_putchar(char c)
 {
-	write(1, &c, 1);
-	return (1);
+	return(write(1, &c, 1));
 }
 
-int	ft_putnbr(int n)
+int	ft_putnbr(long nb)
 {
-	if (n == -2147483648)
-		return (ft_putstr("-2147483648"));
-	else if (n < 0)
-		return (ft_putchar('-') + ft_putnbr(-n));
-	if (n >= 0 && n <= 9)
-		return (ft_putchar(n + '0'));
-	return (ft_putnbr(n / 10) + ft_putchar((n % 10) + '0'));
+	if (nb < 0)
+		return (ft_putchar('-') + ft_putnbr(-nb));
+	if (nb <= 9)
+		return (ft_putchar(nb + '0'));
+	return (ft_putnbr(nb / 10) + ft_putchar(nb % 10 + '0'));
 }
 
 int	ft_putstr(char *s)
@@ -64,9 +61,8 @@ int	print_adress(void *addr)
 	hexa = "0123456789abcdef";
 	while (address)
 	{
-		adr[i] = hexa[address % 16];
+		adr[i++] = hexa[address % 16];
 		address /= 16;
-		i++;
 	}
 	adr[i] = '\0';
 	ft_putstr("0x");

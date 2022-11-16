@@ -6,7 +6,7 @@
 /*   By: tgiraudo <tgiraudo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 19:05:56 by tgiraudo          #+#    #+#             */
-/*   Updated: 2022/11/16 16:42:34 by tgiraudo         ###   ########.fr       */
+/*   Updated: 2022/11/16 22:04:56 by tgiraudo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,3 +58,9 @@ int	ft_print_type(va_list args, char c)
 		return (ft_putchar('%'));
 	return (0);
 }
+
+// int main()
+// {
+// 	printf("%d\n", ft_printf("%d", -2147483648));
+// 	printf("%d", printf("%ld", -2147483648));
+// }
