@@ -11,12 +11,6 @@ To get started with the `ft_printf` project, follow these steps:
 
 ## Usage
 
-To use the `ft_printf` function in your own programs, follow these steps:
-
-1. Include the `ft_printf.h` header file in your source code.
-2. Link your program with the `libftprintf.a` library.
-3. Call the `ft_printf` function with the desired format string and arguments.
-
 Here's an example of how to use `ft_printf`:
 
 ```c
@@ -40,7 +34,6 @@ The `ft_printf` function supports a wide range of format specifiers and options.
 - `%s`: String.
 - `%c`: Character.
 - `%x` or `%X`: Hexadecimal number.
-- `%o`: Octal number.
 - `%p`: Pointer address.
 
 For detailed information about the available format specifiers and their options, refer to the documentation or the project source code.
